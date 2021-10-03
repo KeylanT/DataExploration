@@ -26,7 +26,7 @@ MODIFY total_deaths BIGINT
 
 SELECT location, date, total_cases, new_cases, total_deaths, population  
 FROM covid.deaths
-WHERE location LIKE '%states%'
+-- WHERE location LIKE '%states%'
 
 
 
