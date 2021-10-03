@@ -246,6 +246,13 @@ FROM covid.deaths
 GROUP BY location, 'Mortality Rate'
 ORDER BY 'Mortality Rate'
 
+--  Covid Cases by country each month
+
+ SELECT location, DATE_FORMAT(date, "%M %Y") AS 'Date', new_cases, 
+ SUM(new_cases) OVER (PARTITION BY location ORDER BY 'Date') AS 'RollingCases'
+ FROM covid.deaths
+ GROUP BY 1, 2
+
  
  
  
