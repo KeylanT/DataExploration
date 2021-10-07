@@ -132,7 +132,7 @@ MODIFY people_fully_vaccinated BIGINT
 
 
 -- Total Deaths vs Total People Fully Vaccinated
--- Using Partition by to rolling coivd deaths and covid vaccinations
+-- Using Partition by to calculate rolling covid deaths and covid vaccinations
 
 SELECT deaths.location, deaths.date, people_fully_vaccinated, new_deaths,
 SUM(new_deaths) OVER (Partition by deaths.location ORDER BY deaths.date) AS RollingDeaths,
